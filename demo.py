@@ -1,11 +1,21 @@
-import whisper
+import whisper, logging
+"""Set up logging configuration"""
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger("whisper")
 
-# whisper has multiple models that you can load as per size and requirements
-model = whisper.load_model("large-v3", device="cuda", in_memory=True, download_root="./models")
+model = "large-v3"
+path = "audio.mp3"
+output = "output.txt"
 
-# path to the audio file you want to transcribe
-PATH = "audio.mp3"
+logger.info("Starting Whisper Demo with model ["+model+"]")
+model = whisper.load_model(model, device="cuda", in_memory=True, download_root="./models")
 
-result = model.transcribe(PATH)
-print("----------------------------------")
-print(result["text"])
+logger.info("Starting transcribe for [" + path + "]")
+result = model.transcribe(path)
+logger.info("Completed transcribe for [" + path + "], writing result to: ["+output+"]")
+
+with open(output, "w") as file:
+    file.write(result["text"])
