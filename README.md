@@ -1,4 +1,4 @@
-# openai-whisper-playground
+# OpenAI Whisper Playground
 
 This playground to get fast running with [OpenAI Whisper speech 2 text](https://github.com/openai/whisper).
 
