@@ -4,7 +4,7 @@ This playground to get fast running with [OpenAI Whisper speech 2 text](https://
 
 ## FFmpeg
 
-ffmpeg must be installed, check by running in the CMD.
+ffmpeg must be installed on the host, check by running in the CMD.
 
 ``` shell
 ffmpeg -version
